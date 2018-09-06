@@ -1,0 +1,110 @@
+@import '../import/base.less';
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Montserrat:400,500,800,900&subset=cyrillic');
+}
+
+.cont {
+  .row-flex();
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+}
+
+.title {
+  font-family: Montserrat;
+  margin-top: 50px;
+  font-size: 16px;
+  line-height: 1.63;
+  color: #000;
+}
+
+.price {
+  margin-top: 4px;
+  font-family: Montserrat;
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 1.37;
+  letter-spacing: 1.7px;
+  text-align: left;
+  color: #181818;
+  padding-bottom: 12px;
+}
+
+.scale {
+  position: relative;
+  dislpay: flex;
+  //background: url("../img/bg.png") repeat-x bottom;
+  width: 900px;
+  height: 25px;
+}
+.status {
+  width: 50%;
+  height: 100%;
+  background-color: black;
+  //background: url("../img/bg_active.png") repeat-x bottom;
+}
+
+.band {
+  width: 1px;
+  height: 22px;
+  margin-left: 4px;
+  margin-right: 4px;
+  background-color: #c5c5c5;
+}
+
+.band_active {
+  height: 49px;
+  background-color: #000;
+}
+
+.band_parent_left {
+  width: 1px;
+  height: 31px;
+}
+
+.band_parent_right {
+  height: 31px;
+}
+
+.point {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  margin-left: -16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  z-index: 1;
+  background: radial-gradient(circle, #000, #000 8px, #fff 8px, #fff);
+  &:hover {
+    cursor: grab;
+    background: black;
+  }
+}
+
+.month {
+  margin-top: 25px;
+  padding: 0 16px;
+  opacity: 0.3;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #000;
+  &_active {
+    font-weight: bold;
+    opacity: 1;
+  }
+}
+
+
+

@@ -1,0 +1,240 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img,
+abbr {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ul li {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+legend {
+  color: #000;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  max-width: 1048px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('../fonts/Geometria-Thin.eot'), url('../fonts/Geometria-Thin.eot?#iefix') format('embedded-opentype'), url('../fonts/Geometria-Thin.woff') format('woff'), url('../fonts/Geometria-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Montserrat:400,500,800,900&subset=cyrillic');
+}
+
+.cont {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -16px;
+  margin-right: -16px;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.row {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: end;
+  align-items: flex-end;
+}
+
+.title {
+  font-family: Montserrat;
+  margin-top: 50px;
+  font-size: 16px;
+  line-height: 1.63;
+  color: #000;
+}
+
+.price {
+  margin-top: 4px;
+  font-family: Montserrat;
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 1.37;
+  letter-spacing: 1.7px;
+  text-align: left;
+  color: #181818;
+  padding-bottom: 12px;
+}
+
+.scale {
+  position: relative;
+  dislpay: flex;
+  width: 900px;
+  height: 25px;
+}
+
+.status {
+  width: 50%;
+  height: 100%;
+  background-color: black;
+}
+
+.band {
+  width: 1px;
+  height: 22px;
+  margin-left: 4px;
+  margin-right: 4px;
+  background-color: #c5c5c5;
+}
+
+.band_active {
+  height: 49px;
+  background-color: #000;
+}
+
+.band_parent_left {
+  width: 1px;
+  height: 31px;
+}
+
+.band_parent_right {
+  height: 31px;
+}
+
+.point {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  margin-left: -16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  z-index: 1;
+  background: -webkit-radial-gradient(circle, #000, #000 8px, #fff 8px, #fff);
+  background: radial-gradient(circle, #000, #000 8px, #fff 8px, #fff);
+}
+
+.point:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+  background: black;
+}
+
+.month {
+  margin-top: 25px;
+  padding: 0 16px;
+  opacity: 0.3;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.month_active {
+  font-weight: bold;
+  opacity: 1;
+}
+/*# sourceMappingURL=scaleofchange.css.map */
