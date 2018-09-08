@@ -9,14 +9,28 @@
 <body>
 
 <div id="app">
-    <div class="wrapper">
+    <div class="wrapper" v-on:mousemove="eventMove({x: $event.pageX})">
         <div class="cont">
             <p class="title">за квадратный метр</p>
         </div>
         <div class="cont"><p class="price">66800 &#x20bd</p></div>
         <div class="cont">
-            <div class="row scale" v-on="createItems">
-                <band-item v-for="item in items" v-bind:data-id="item.id"></band-item>
+            <div class="overscale">
+                <div class="row scale_wrap" v-on="createItems">
+                    <div class="scale">
+                        <div class="band" :class="[item.class]" v-for="item in items" :key="item.id"
+                             v-bind:data-id="item.id"></div>
+                    </div>
+                    <div class="scale_active" :style="{width: leftSize + '%'}">
+                        <div class="scale">
+                            <div class="band band_active" :class="[item.class]" v-for="item in items" :key="item.id"
+                                 v-bind:data-id="item.id"></div>
+                        </div>
+                    </div>
+                    <div class="point" :style="{left: leftSize + '%'}"
+                         v-on:mousedown="initEventMove = !initEventMove"
+                         v-on:mouseup="initEventMove = !initEventMove"></div>
+                </div>
             </div>
         </div>
         <div class="cont">
@@ -24,27 +38,16 @@
                 <div class="month" v-for="month in months">{{month}}</div>
             </div>
         </div>
+        <div class="cont">{{leftSize}}</div>
     </div>
 </div>
 <script>
-    Vue.component('band-item', {
-        data() {
-            return {
-                click: false,
-            }
-        },
-        computed: {
-            active() {
-                return {"band_active": this.click}
-            }
-        },
-        template: '<div class="band" v-on:click="click = !click"  v-bind:class="active"></div>'
-    });
-
-    new Vue({
+    var vm = new Vue({
         el: "#app",
         data: {
-            name: "test",
+            parentCoord: 50,
+            initEventMove: false,
+            leftSize: 50,
             months: {
                 1: "январь",
                 2: "февраль",
@@ -66,18 +69,40 @@
         computed: {
             createItems() {
                 for (let i = 0; i < 100; i++) {
-                    if(i === 50) {
-                        this.items.push({id: i+1, status: true});
+                    if (i === 49) {
+                        this.items.push({id: i + 1});
+                    } else if (i == 48) {
+                        this.items.push({id: i + 1});
+                    } else if (i==50) {
+                        this.items.push({id: i + 1});
                     } else {
-                        this.items.push({id: i+1, status: false});
+                        this.items.push({id: i + 1});
                     }
                 }
-            },
-            active() {
+                this.getParentCoord;
 
-            }
+            },
+            getParentCoord() {
+                var scale = document.querySelector('.scale');
+                this.parentCoord = scale.getBoundingClientRect(scale);
+            },
+
         },
-        methods: {}
+        methods: {
+            eventMove(obj) {
+                if (this.initEventMove) {
+                    var coord = Math.round((obj.x - this.parentCoord.left) / this.parentCoord.width * 100);
+                    if (coord > 100) {
+                        this.leftSize = 100;
+                    } else if (coord <= 0) {
+                        this.leftSize = 1;
+                    } else {
+                        this.leftSize = coord;
+                    }
+                    this.assa;
+                }
+            }
+        }
     });
 </script>
 </body>

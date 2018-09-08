@@ -35,13 +35,35 @@
   padding-bottom: 12px;
 }
 
-.scale {
+.scale_wrap {
   position: relative;
   dislpay: flex;
   //background: url("../img/bg.png") repeat-x bottom;
   width: 900px;
   height: 25px;
 }
+
+.scale {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  width: 900px;
+  top: 0;
+  left: 0;
+}
+
+.scale_active {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  //background-color: black;
+}
+
 .status {
   width: 50%;
   height: 100%;
@@ -57,35 +79,31 @@
   background-color: #c5c5c5;
 }
 
+.band_focus {
+  height: 42px;
+}
+
 .band_active {
-  height: 49px;
   background-color: #000;
 }
 
-.band_parent_left {
-  width: 1px;
-  height: 31px;
-}
-
-.band_parent_right {
+.band_child {
   height: 31px;
 }
 
 .point {
   position: absolute;
-  bottom: -16px;
+  bottom: -55%;
   left: 50%;
-  margin-left: -16px;
+  margin-left: -2.2%;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   box-sizing: border-box;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-  z-index: 1;
   background: radial-gradient(circle, #000, #000 8px, #fff 8px, #fff);
   &:hover {
     cursor: grab;
-    background: black;
   }
 }
 
