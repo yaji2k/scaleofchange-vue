@@ -9,13 +9,13 @@
 <body>
 
 <div id="app">
-    <div class="wrapper" v-on:mousemove="eventMove({x: $event.pageX})">
+    <div class="wrapper" v-on:mousemove="eventMoveMD({x: $event.pageX})" v-on:mouseleave="initEventMove=false">
         <div class="cont">
             <p class="title">за квадратный метр</p>
         </div>
         <div class="cont"><p class="price">66800 &#x20bd</p></div>
         <div class="cont">
-            <div class="overscale">
+            <div class="overscale" v-on:click="eventMove({x: $event.pageX})">
                 <div class="row scale_wrap" v-on="createItems">
                     <div class="scale">
                         <div class="band" :class="[item.class]" v-for="item in items" :key="item.id"
@@ -28,8 +28,8 @@
                         </div>
                     </div>
                     <div class="point" :style="{left: leftSize + '%'}"
-                         v-on:mousedown="initEventMove = !initEventMove"
-                         v-on:mouseup="initEventMove = !initEventMove"></div>
+                         v-on:mousedown="initEventMove = true"
+                         v-on:mouseup="initEventMove = false"></div>
                 </div>
             </div>
         </div>
@@ -38,7 +38,6 @@
                 <div class="month" v-for="month in months">{{month}}</div>
             </div>
         </div>
-        <div class="cont">{{leftSize}}</div>
     </div>
 </div>
 <script>
@@ -85,12 +84,12 @@
             getParentCoord() {
                 var scale = document.querySelector('.scale');
                 this.parentCoord = scale.getBoundingClientRect(scale);
+                console.log(this.parentCoord)
             },
 
         },
         methods: {
             eventMove(obj) {
-                if (this.initEventMove) {
                     var coord = Math.round((obj.x - this.parentCoord.left) / this.parentCoord.width * 100);
                     if (coord > 100) {
                         this.leftSize = 100;
@@ -99,10 +98,17 @@
                     } else {
                         this.leftSize = coord;
                     }
-                    this.assa;
+            },
+            resize() {
+                this.getParentCoord;
+            },
+            eventMoveMD(obj) {
+                if (this.initEventMove) {
+                    this.eventMove(obj)
                 }
             }
         }
+
     });
 </script>
 </body>
