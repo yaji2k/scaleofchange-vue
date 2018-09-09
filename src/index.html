@@ -9,33 +9,35 @@
 <body>
 
 <div id="app">
-    <div class="wrapper" v-on:mousemove="eventMoveMD({x: $event.pageX})" v-on:mouseleave="initEventMove=false">
+    <div class="wrapper" @mousemove="eventMoveMD({x: $event.pageX})" @mouseleave="initEventMove=false">
         <div class="cont">
-            <p class="title">за квадратный метр</p>
+            <p class="title">за м<sup class="sup">2</sup></p>
         </div>
         <div class="cont"><p class="price">66800 &#x20bd</p></div>
         <div class="cont">
-            <div class="overscale" v-on:click="eventMove({x: $event.pageX})">
+            <div class="overscale" @click="eventMove({x: $event.pageX})">
                 <div class="row scale_wrap" v-on="createItems">
                     <div class="scale">
                         <div class="band" :class="[item.class]" v-for="item in items" :key="item.id"
-                             v-bind:data-id="item.id"></div>
+                             :data-id="item.id"></div>
                     </div>
                     <div class="scale_active" :style="{width: leftSize + '%'}">
                         <div class="scale">
                             <div class="band band_active" :class="[item.class]" v-for="item in items" :key="item.id"
-                                 v-bind:data-id="item.id"></div>
+                                 :data-id="item.id"></div>
                         </div>
                     </div>
                     <div class="point" :style="{left: leftSize + '%'}"
-                         v-on:mousedown="initEventMove = true"
-                         v-on:mouseup="initEventMove = false"></div>
+                         @mousedown="initEventMove = true"
+                         @mouseup="initEventMove = false"></div>
                 </div>
             </div>
         </div>
         <div class="cont">
             <div class="row">
-                <div class="month" :class="{'month_active': item.min<leftSize && leftSize<= item.max}" v-for="item in months">{{item.month}}</div>
+                <div class="month" :class="{'month_active': item.min<leftSize && leftSize<= item.max}"
+                     v-for="item in months">{{item.month}}
+                </div>
             </div>
         </div>
     </div>
@@ -48,21 +50,21 @@
             initEventMove: false,
             leftSize: 50,
             months: [
-                {month: "январь", min:0, max:10},
-                {month: "февраль", min:10, max:20},
-                {month: "март", min:20, max:30},
-                {month: "апрель", min:30, max:40},
-                {month: "май", min:40, max:50},
-                {month: "июнь", min:50, max:60},
-                {month: "июль", min:60, max:70},
-                {month: "август", min:70, max:80},
-                {month: "сентабрь", min:80, max:90},
-                {month: "октябрь", min:90, max:100},
-                {month: "ноябрь",min:100, max:110},
-                {month: "декабрь", min:110, max:120},
+                {month: "январь", min: 0, max: 10},
+                {month: "февраль", min: 10, max: 18},
+                {month: "март", min: 18, max: 26},
+                {month: "апрель", min: 26, max: 34},
+                {month: "май", min: 34, max: 42},
+                {month: "июнь", min: 42, max: 50},
+                {month: "июль", min: 50, max: 58},
+                {month: "август", min: 58, max: 66},
+                {month: "сентабрь", min: 66, max: 74},
+                {month: "октябрь", min: 74, max: 82},
+                {month: "ноябрь", min: 82, max: 90},
+                {month: "декабрь", min: 90, max: 100},
             ],
             items: [],
-            count: 70,
+            count: 100,
             show: false,
         },
         computed: {
@@ -72,7 +74,7 @@
                         this.items.push({id: i + 1});
                     } else if (i == 48) {
                         this.items.push({id: i + 1});
-                    } else if (i==50) {
+                    } else if (i == 50) {
                         this.items.push({id: i + 1});
                     } else {
                         this.items.push({id: i + 1});
@@ -90,14 +92,14 @@
         },
         methods: {
             eventMove(obj) {
-                    var coord = Math.round((obj.x - this.parentCoord.left) / this.parentCoord.width * 100);
-                    if (coord > 100) {
-                        this.leftSize = 100;
-                    } else if (coord <= 0) {
-                        this.leftSize = 1;
-                    } else {
-                        this.leftSize = coord;
-                    }
+                var coord = Math.round((obj.x - this.parentCoord.left) / this.parentCoord.width * 100);
+                if (coord > 100) {
+                    this.leftSize = 100;
+                } else if (coord <= 0) {
+                    this.leftSize = 1;
+                } else {
+                    this.leftSize = coord;
+                }
             },
             resize() {
                 this.getParentCoord;

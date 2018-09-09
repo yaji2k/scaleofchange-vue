@@ -180,6 +180,7 @@ img {
   width: 900px;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
 
 .scale_active {
@@ -236,8 +237,7 @@ img {
 }
 
 .point:hover {
-  cursor: -webkit-grab;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .month {
@@ -256,5 +256,9 @@ img {
 .month_active {
   font-weight: bold;
   opacity: 1;
+}
+
+.sup {
+  line-height: 1;
 }
 /*# sourceMappingURL=scaleofchange.css.map */
