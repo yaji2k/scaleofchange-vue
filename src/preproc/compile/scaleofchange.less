@@ -37,9 +37,8 @@
 
 .scale_wrap {
   position: relative;
-  dislpay: flex;
   width: 900px;
-  height: 25px;
+  height: 42px;
 }
 
 .scale {
@@ -47,14 +46,13 @@
   align-items: flex-end;
   position: absolute;
   width: 900px;
+  height: 100%;
   top: 0;
   left: 0;
   cursor: pointer;
 }
 
 .scale_active {
-  display: flex;
-  align-items: flex-end;
   position: absolute;
   width: 50%;
   height: 100%;
@@ -63,22 +61,18 @@
   left: 0;
 }
 
-.status {
-  width: 50%;
-  height: 100%;
-  background-color: black;
-}
-
 .band {
   width: 1px;
   height: 22px;
   margin-left: 4px;
   margin-right: 4px;
   background-color: #c5c5c5;
+  transition: height 0.1s;
 }
 
 .band_focus {
   height: 42px;
+  transition: height 0.1s;
 }
 
 .band_active {
@@ -87,6 +81,7 @@
 
 .band_child {
   height: 31px;
+  transition: height 0.1s;
 }
 
 .point {
